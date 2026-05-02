@@ -2,9 +2,9 @@
 #include <stdlib.h>
 #include "student.h"
 
-/* ================================================================
- *  Save entire linked list to binary file
- * ================================================================ */
+
+// Save entire linked list to binary file
+ 
 int save_to_file(Node *head, const char *filename) {
     FILE *fp = fopen(filename, "wb");
     if (!fp) {
@@ -13,7 +13,7 @@ int save_to_file(Node *head, const char *filename) {
     }
 
     int count = count_students(head);
-    /* write record count first */
+    //write record count first 
     fwrite(&count, sizeof(int), 1, fp);
 
     Node *cur = head;
@@ -27,12 +27,12 @@ int save_to_file(Node *head, const char *filename) {
     return 1;
 }
 
-/* ================================================================
- *  Load linked list from binary file — returns head
- * ================================================================ */
+
+//Load linked list from binary file — returns head
+ 
 Node* load_from_file(const char *filename) {
     FILE *fp = fopen(filename, "rb");
-    if (!fp) return NULL;   /* no file yet — not an error */
+    if (!fp) return NULL;   //no file yet — not an error 
 
     int count = 0;
     if (fread(&count, sizeof(int), 1, fp) != 1) {
@@ -55,9 +55,9 @@ Node* load_from_file(const char *filename) {
     return head;
 }
 
-/* ================================================================
- *  Export all records to a readable text file
- * ================================================================ */
+
+ //Export all records to a readable text file
+ 
 int export_to_text(Node *head, const char *filename) {
     FILE *fp = fopen(filename, "w");
     if (!fp) {
