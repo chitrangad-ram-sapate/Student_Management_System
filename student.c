@@ -4,7 +4,7 @@
 #include <ctype.h>
 #include "student.h"
 
-/* ---------- Standard C case-insensitive string compare ---------- */
+//---------- Standard C case-insensitive string compare ---------- 
 static int stricmp_custom(const char *a, const char *b) {
     while (*a && *b) {
         int diff = tolower((unsigned char)*a) - tolower((unsigned char)*b);
@@ -14,9 +14,8 @@ static int stricmp_custom(const char *a, const char *b) {
     return tolower((unsigned char)*a) - tolower((unsigned char)*b);
 }
 
-/* ================================================================
- *  Create a new node (copies data)
- * ================================================================ */
+// Create a new node (Data ko copy karega)
+
 Node* create_node(Student s) {
     Node *n = (Node*)malloc(sizeof(Node));
     if (!n) {
@@ -28,9 +27,8 @@ Node* create_node(Student s) {
     return n;
 }
 
-/* ================================================================
- *  Add student to end of list — returns (possibly new) head
- * ================================================================ */
+ // Add student to end of list — returns (possibly new) head
+
 Node* add_student(Node *head, Student s) {
     Node *n = create_node(s);
     if (!n) return head;
@@ -44,9 +42,7 @@ Node* add_student(Node *head, Student s) {
     return head;
 }
 
-/* ================================================================
- *  Print all students in a formatted table
- * ================================================================ */
+ // Print all students in a formatted table
 void print_all(Node *head) {
     if (!head) {
         printf("\n  (No students in the system.)\n");
@@ -68,9 +64,8 @@ void print_all(Node *head) {
     printf("\n");
 }
 
-/* ================================================================
- *  Free entire linked list
- * ================================================================ */
+//Free entire linked list
+
 void free_list(Node *head) {
     Node *cur = head;
     while (cur) {
@@ -80,9 +75,8 @@ void free_list(Node *head) {
     }
 }
 
-/* ================================================================
- *  Search by exact roll number — returns node pointer or NULL
- * ================================================================ */
+//Search by exact roll number — returns node pointer or NULL
+
 Node* search_by_roll(Node *head, int roll) {
     Node *cur = head;
     while (cur) {
@@ -93,9 +87,9 @@ Node* search_by_roll(Node *head, int roll) {
     return NULL;
 }
 
-/* ================================================================
- *  Delete student by roll — returns (possibly new) head
- * ================================================================ */
+
+ //Delete student by roll — returns (possibly new) head
+ 
 Node* delete_student(Node *head, int roll) {
     if (!head) return NULL;
 
@@ -135,9 +129,8 @@ int update_student(Node *head, int roll, Student new_data) {
     return 1;
 }
 
-/* ================================================================
- *  Sort by name (ascending, case-insensitive) — insertion sort
- * ================================================================ */
+
+//Sort by name (ascending, case-insensitive) — insertion sort
 Node* sort_by_name(Node *head) {
     if (!head || !head->next) return head;
 
@@ -164,9 +157,9 @@ Node* sort_by_name(Node *head) {
     return sorted;
 }
 
-/* ================================================================
- *  Sort by marks (descending) — insertion sort
- * ================================================================ */
+
+//Sort by marks (descending) — insertion sort
+
 Node* sort_by_marks(Node *head) {
     if (!head || !head->next) return head;
 
@@ -190,18 +183,15 @@ Node* sort_by_marks(Node *head) {
     return sorted;
 }
 
-/* ================================================================
- *  Count number of students
- * ================================================================ */
+ //Count number of students
 int count_students(Node *head) {
     int c = 0;
     while (head) { c++; head = head->next; }
     return c;
 }
+ 
+//Search by partial name (case-insensitive)
 
-/* ================================================================
- *  Search by partial name (case-insensitive)
- * ================================================================ */
 void search_by_name(Node *head, const char *partial) {
     if (!head) {
         printf("  (No students to search.)\n");
