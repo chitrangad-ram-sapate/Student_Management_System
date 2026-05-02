@@ -1,12 +1,12 @@
 #ifndef STUDENT_H
 #define STUDENT_H
 
-/* ---------- Constants ---------- */
+//---------- Constants ---------- 
 #define MAX_NAME      100
 #define FILENAME      "records.dat"
 #define EXPORT_FILE   "records_export.txt"
 
-/* ---------- Student Struct ---------- */
+// ---------- Student Struct ---------- 
 typedef struct {
     int   roll;
     char  name[MAX_NAME];
@@ -15,13 +15,13 @@ typedef struct {
     char  grade;          /* 'A','B','C','D','F' — auto-calculated */
 } Student;
 
-/* ---------- Linked-List Node ---------- */
+//---------- Linked-List Node ----------
 typedef struct Node {
     Student     data;
     struct Node *next;
 } Node;
 
-/* ========== student.c ========== */
+// ========== student.c ========== 
 
 /* Create a new node (copies data).  Returns NULL on allocation failure. */
 Node* create_node(Student s);
@@ -56,7 +56,7 @@ int   count_students(Node *head);
 /* Search by partial name (case-insensitive).  Prints all matches. */
 void  search_by_name(Node *head, const char *partial);
 
-/* ========== file_io.c ========== */
+// ========== file_io.c ========== 
 
 /* Save entire linked list to binary file.  Returns 1 on success. */
 int   save_to_file(Node *head, const char *filename);
@@ -66,8 +66,6 @@ Node* load_from_file(const char *filename);
 
 /* Export all records to a readable text file.  Returns 1 on success. */
 int   export_to_text(Node *head, const char *filename);
-
-/* ========== utils.c ========== */
 
 /* Auto-compute grade from marks (0‑100). */
 char  compute_grade(float marks);
