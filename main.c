@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include "student.h"
 
-/* ---------- Helper: prompt for student data ---------- */
+// Helper: prompt for student data 
 static void input_student(Student *s) {
     printf("    Roll number : ");
     read_int(&s->roll);
@@ -23,7 +23,7 @@ static void input_student(Student *s) {
     s->grade = compute_grade(s->marks);
 }
 
-/* ---------- Print validation error ---------- */
+// Print validation error (Incase galat hua toh)
 static void print_val_error(int code) {
     switch (code) {
         case -1: printf("  ERROR: Duplicate roll number!\n"); break;
@@ -34,15 +34,15 @@ static void print_val_error(int code) {
     }
 }
 
-/* ================================================================
- *  MAIN
- * ================================================================ */
+
+ //MAIN
+
 int main(void) {
     Node *head = NULL;
     int   running = 1;
     int   choice;
 
-    /* --- Load saved data on startup --- */
+    //Load saved data on startup 
     head = load_from_file(FILENAME);
 
     /* --- Main loop --- */
@@ -76,7 +76,7 @@ int main(void) {
 
         switch (choice) {
 
-        /* ---------- ADD ---------- */
+        // ---------- ADD ---------- 
         case 1: {
             Student s;
             printf("\n  --- Add New Student ---\n");
@@ -94,12 +94,12 @@ int main(void) {
             break;
         }
 
-        /* ---------- VIEW ALL ---------- */
+        //---------- VIEW ALL ---------- 
         case 2:
             print_all(head);
             break;
 
-        /* ---------- SEARCH BY ROLL ---------- */
+        //---------- SEARCH BY ROLL ---------- 
         case 3: {
             int roll;
             printf("  Enter roll number: ");
@@ -118,7 +118,7 @@ int main(void) {
             break;
         }
 
-        /* ---------- SEARCH BY NAME ---------- */
+        //---------- SEARCH BY NAME ---------- 
         case 4: {
             char partial[MAX_NAME];
             printf("  Enter name or part of name: ");
@@ -128,7 +128,7 @@ int main(void) {
             break;
         }
 
-        /* ---------- UPDATE ---------- */
+        //---------- UPDATE ---------- 
         case 5: {
             int roll;
             printf("  Enter roll number to update: ");
@@ -160,7 +160,7 @@ int main(void) {
             break;
         }
 
-        /* ---------- DELETE ---------- */
+        //---------- DELETE ---------- 
         case 6: {
             int roll;
             printf("  Enter roll number to delete: ");
@@ -172,36 +172,36 @@ int main(void) {
             break;
         }
 
-        /* ---------- SORT BY NAME ---------- */
+        //---------- SORT BY NAME ---------- 
         case 7:
             head = sort_by_name(head);
             printf("  Sorted by name (A-Z).\n");
             print_all(head);
             break;
 
-        /* ---------- SORT BY MARKS ---------- */
+        //---------- SORT BY MARKS ---------- 
         case 8:
             head = sort_by_marks(head);
             printf("  Sorted by marks (highest first).\n");
             print_all(head);
             break;
 
-        /* ---------- STATISTICS ---------- */
+        //---------- STATISTICS ---------- 
         case 9:
             print_statistics(head);
             break;
 
-        /* ---------- EXPORT TO TEXT ---------- */
+        //---------- EXPORT TO TEXT ---------- 
         case 10:
             export_to_text(head, EXPORT_FILE);
             break;
 
-        /* ---------- MANUAL SAVE ---------- */
+        //---------- MANUAL SAVE ---------- 
         case 11:
             save_to_file(head, FILENAME);
             break;
 
-        /* ---------- EXIT ---------- */
+        //---------- EXIT ----------
         case 0:
             printf("  Saving and exiting...\n");
             save_to_file(head, FILENAME);
