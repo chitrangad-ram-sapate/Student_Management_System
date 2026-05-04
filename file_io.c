@@ -56,9 +56,9 @@ Node* load_from_file(const char *filename) {
 }
 
 
- //Export all records to a readable text file
+ //Export all records to a readable excel file
  
-int export_to_text(Node *head, const char *filename) {
+int export_to_csv(Node *head, const char *filename) {
     FILE *fp = fopen(filename, "w");
     if (!fp) {
         fprintf(stderr, "ERROR: Cannot open %s for writing.\n", filename);
