@@ -64,8 +64,8 @@ int   save_to_file(Node *head, const char *filename);
 /* Load linked list from binary file.  Returns head of list (NULL if empty or error). */
 Node* load_from_file(const char *filename);
 
-/* Export all records to a readable text file.  Returns 1 on success. */
-int   export_to_text(Node *head, const char *filename);
+/* Export all records to a readable excel file.  Returns 1 on success. */
+int   export_to_excel(Node *head, const char *filename);
 
 /* Auto-compute grade from marks (0‑100). */
 char  compute_grade(float marks);
