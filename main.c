@@ -60,7 +60,7 @@ int main(void) {
         printf("  |  7. Sort by Name (A-Z)               |\n");
         printf("  |  8. Sort by Marks (High-Low)         |\n");
         printf("  |  9. Statistics Report                |\n");
-        printf("  | 10. Export to Text File              |\n");
+        printf("  | 10. Export to Excel File             |\n");
         printf("  | 11. Save to Binary File              |\n");
         printf("  |  0. Exit                             |\n");
         printf("  ========================================\n");
@@ -193,7 +193,7 @@ int main(void) {
 
         //---------- EXPORT TO TEXT ---------- 
         case 10:
-            export_to_text(head, EXPORT_FILE);
+            export_to_excel(head, EXPORT_FILE);
             break;
 
         //---------- MANUAL SAVE ---------- 
