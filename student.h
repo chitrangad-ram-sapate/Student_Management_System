@@ -4,7 +4,7 @@
 //---------- Constants ---------- 
 #define MAX_NAME      100
 #define FILENAME      "records.dat"
-#define EXPORT_FILE   "records_export.txt"
+#define EXPORT_FILE   "records_export.csv"
 
 // ---------- Student Struct ---------- 
 typedef struct {
