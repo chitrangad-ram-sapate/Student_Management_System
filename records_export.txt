@@ -1,5 +1,0 @@
-Roll   Name                 Age   Marks   Grade
------- -------------------- ---   ------- -----
-43     Chitrangad Ram Sapate 20    100.00  A    
-
-Total students: 1
